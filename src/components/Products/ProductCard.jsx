@@ -1,7 +1,7 @@
 // CategoryComponent.js
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import Products from "./ProductCard";
+import Products from "./index";
 import "./style.css";
 
 const CategoryButton = ({ category, onClick }) => (
@@ -18,6 +18,7 @@ const CategoryComponent = () => {
   const [jewelry, setJewelry] = useState([]);
   const [mensClothing, setMensClothing] = useState([]);
   
+
 
   useEffect(() => {
     const fetchData = async (category, setData) => {
@@ -75,3 +76,4 @@ const CategoryComponent = () => {
 };
 
 export default CategoryComponent;
+

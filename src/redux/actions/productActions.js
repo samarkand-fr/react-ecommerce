@@ -26,4 +26,3 @@ export const loadProduct = (productId) => {
       }
     };
   };
-  
