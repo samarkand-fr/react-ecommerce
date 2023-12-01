@@ -51,6 +51,7 @@ const CategoryComponent = () => {
       </div>
     ));
 
+    
   return (
     <div>
       <h2 className="Category_title">PRODUCT OVERVIEW</h2>
@@ -76,4 +77,9 @@ const CategoryComponent = () => {
 };
 
 export default CategoryComponent;
+
+
+
+
+
 

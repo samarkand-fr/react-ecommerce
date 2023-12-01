@@ -38,7 +38,7 @@ const ContactPage = () => {
               </div>
               <div className="text-center">
                 <button
-                  class="my-2 px-4 mx-auto btn btn-dark"
+                  class="my-2 px-4 mx-auto btn btn-primary"
                   type="submit"
                   disabled
                 >

@@ -1,7 +1,7 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
+import './style.css'
 
 const NavBar = () => {
   // Get the cart and favorites states directly from Redux
@@ -13,33 +13,31 @@ const NavBar = () => {
   const totalQuantityInFavorites = favoritesState.length;
 
   return (
-    <header>
-      <div className=" nav_container bg-dark text-white fw-bold d-flex flex-wrap justify-content-evenly p-4">
+    <header className="container-fluid">
+      <div className="navbar navbar-dark bg-dark">
         <Link to="/" className="navbar-brand">
-          <div className="nav_logo">
-            Fashion
-          </div>
+          <div className="nav_logo">SHOPY</div>
         </Link>
 
-        <div className="nav_items  px-5">
-          <Link to="/" className="nav-link">
+        <div className="navbar">
+          <Link to="/" className="nav-link px-3 active">
             Home
           </Link>
 
-          <Link to="/products" className="nav-link ">
+          <Link to="/products" className="nav-link px-3">
             Products
           </Link>
 
-          <Link to="/AboutUS" className="nav-link">
+          <Link to="/AboutUS" className="nav-link px-3">
             About Us
           </Link>
 
-          <Link to="/ContactUS" className="nav-link">
+          <Link to="/ContactUS" className="nav-link px-3">
             Contact Us
           </Link>
         </div>
 
-        <div className="nav_btn  ">
+        <div className="nav_btn fs-6">
           <Link to="/signup" className="nav-link">
             <i className="uil uil-user"></i> Sign Up
           </Link>

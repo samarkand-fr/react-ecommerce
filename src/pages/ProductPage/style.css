@@ -1,3 +1,4 @@
+
 .Product-card{
     display: flex;
     background-color: white;
@@ -88,14 +89,14 @@
   @media screen and (min-width: 1440px) {
     .Product-card{
         display: flex;
-        background-color: white;
+        background-color: rgba(248, 246, 246, 0.891);
         flex-direction: row;
         margin: 5% ;
         padding: 5%;
     }
 
     .Product-Img img{
-        width: 400px;
+        width: 350px;
         height: 350px;
     }
 
@@ -114,10 +115,10 @@
            word-wrap: break-word;
            margin-top: 5%;
            margin-bottom: 5%;
-           font-size: 20px;
+           font-size: 18px;
        }
        .Product-Details h2{
-        font-size: 50px;
+        font-size: 40px;
        }
        #Product-price{
            color: black;
@@ -127,11 +128,12 @@
        
        .Product-Details button{
         margin-top: 5%;
+        margin-right: 5px;
         border: none;
         color: white;
         padding: 3% 10%;
         border-radius: 25px;
-        background-color: black;
+        background-color: rgb(57, 56, 56);
         font-size: 20px;
       }
     

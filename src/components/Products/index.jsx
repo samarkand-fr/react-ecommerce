@@ -7,9 +7,9 @@ const Products = (props) => {
   return (
         <div className="Card">
           <img src={image} className="card_img" alt="product_card" />
-          <div className="card_body">
-            <h5 className="card_title">{title}</h5>
-            <p className="card_text">${price}</p>
+          <div className="card-body">
+            <h5 className="card-title">{title}</h5>
+            <p className="card-text">${price}</p>
           </div>
         </div>
   );
