@@ -1,7 +1,4 @@
 
-
-// actions/cartActions.js
-
 // For Add Item to Cart
 export const addCart = (product) => {
     return {
@@ -20,7 +17,7 @@ export const delCart = (product) => {
 export const updateCart = (userId, items) => ({
     type: 'UPDATE_CART',
     payload: { userId, items },
-  });
+});
 
 
 

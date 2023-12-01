@@ -1,9 +1,8 @@
 import React from "react";
 import Footer from "../../components/Footer";
 import { useSelector } from "react-redux";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { resetCart } from '../redux/actions/cartActions';
-
 
 const Checkout = () => {
   const state = useSelector((state) => state.handleCart);
@@ -37,25 +36,24 @@ const Checkout = () => {
       return (totalItems += item.qty);
     });
 
-   
-  const handleSubmit = (event) => {
-    event.preventDefault();
+    const handleSubmit = (event) => {
+      event.preventDefault();
 
-    // Perform any necessary form validation and processing here
+      // Perform any necessary form validation and processing here
 
-    // Display alert
-    alert("Your cart has been validated!");
-    // dispatch(resetCart());
-    // Navigate to the user's dashboard
-    navigate('/dashboard');
-  };
-    
-  // const handleCheckout = () => {
-  //   // Perform your checkout logic here
-  
-  //   // Dispatch the action to reset the cart after a successful checkout
-  //   dispatch(resetCart());
-  // };
+      // Display alert
+      alert("Your cart has been validated!");
+      // dispatch(resetCart());
+      // Navigate to the user's dashboard
+      navigate("/dashboard");
+    };
+
+    // const handleCheckout = () => {
+    //   // Perform your checkout logic here
+
+    //   // Dispatch the action to reset the cart after a successful checkout
+    //   dispatch(resetCart());
+    // };
     return (
       <>
         <div className="container py-5">
@@ -68,7 +66,8 @@ const Checkout = () => {
                 <div className="card-body">
                   <ul className="list-group list-group-flush">
                     <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                      Products ({totalItems})<span>${Math.round(subtotal)}</span>
+                      Products ({totalItems})
+                      <span>${Math.round(subtotal)}</span>
                     </li>
                     <li className="list-group-item d-flex justify-content-between align-items-center px-0">
                       Shipping
@@ -92,7 +91,11 @@ const Checkout = () => {
                   <h4 className="mb-0">Billing address</h4>
                 </div>
                 <div className="card-body">
-                  <form className="needs-validation" noValidate  onSubmit={handleSubmit}>
+                  <form
+                    className="needs-validation"
+                    noValidate
+                    onSubmit={handleSubmit}
+                  >
                     <div className="row g-3">
                       <div className="col-sm-6 my-1">
                         <label htmlFor="firstName" className="form-label">
@@ -231,17 +234,24 @@ const Checkout = () => {
 
                     <h4 className="mb-3">Payment</h4>
                     <div className="col-md-3 my-1">
-                      <input type="radio" id="COD" value="option1" name="payment" />
+                      <input
+                        type="radio"
+                        id="COD"
+                        value="option1"
+                        name="payment"
+                      />
                       <label htmlFor="option1">Cash On Delivery</label>
-                         <br/>
-                      <input type="radio" id="Card" value="option2" name="payment" />
+                      <br />
+                      <input
+                        type="radio"
+                        id="Card"
+                        value="option2"
+                        name="payment"
+                      />
                       <label htmlFor="option2">Card</label>
                     </div>
 
-                    <button
-                      className="w-100 btn btn-dark "
-                      type="submit" 
-                    >
+                    <button className="w-100 btn btn-dark " type="submit">
                       Continue to checkout
                     </button>
                   </form>

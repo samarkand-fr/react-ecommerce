@@ -4,9 +4,10 @@ import favoritesReducer from './reducers/favoritesReducer';
 import userReducer from '../redux/reducers/userReducer'; // Import your userReducer
 
 const rootReducer = combineReducers({
+   // Add your userReducer here
   handleCart: cartReducer,
   handleFavorites: favoritesReducer,
-  user: userReducer, // Add your userReducer here
+  user: userReducer,
 });
 
 export default rootReducer;

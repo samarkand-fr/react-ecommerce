@@ -1,7 +1,7 @@
 // ViewOrders.js
-import React from 'react';
-import { useSelector } from 'react-redux';
-import './style.css'; // Import the CSS file
+import React from "react";
+import { useSelector } from "react-redux";
+import "./style.css"; 
 
 const ViewOrders = () => {
   const cartItems = useSelector((state) => state.handleCart);
@@ -12,7 +12,11 @@ const ViewOrders = () => {
       <ul className="order-list">
         {cartItems.map((item) => (
           <li key={item.id} className="order-item">
-            <img src={item.image} alt={item.title} className="order-item-image" />
+            <img
+              src={item.image}
+              alt={item.title}
+              className="order-item-image"
+            />
             <div className="order-item-details">
               <p className="order-item-title">{item.title}</p>
               <p>Quantity: {item.qty}</p>

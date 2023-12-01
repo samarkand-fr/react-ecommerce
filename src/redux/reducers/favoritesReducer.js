@@ -1,4 +1,3 @@
-// reducers/favoritesReducer.js
 
 const initialState = [];
 
@@ -24,15 +23,11 @@ const favoritesReducer = (state = initialState, action) => {
   }
 };
 
-// favoritesReducer.js
-
 export const toggleFavorite = (product) => {
   return {
     type: 'TOGGLE_FAVORITE',
     payload: product,
   };
 };
-
-// rest of the reducer logic...
 
 export default favoritesReducer;

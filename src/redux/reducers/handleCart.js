@@ -45,6 +45,3 @@ const handleCart = (state = cartFromStorage, action) => {
 
 export default handleCart;
 
-
-
-  

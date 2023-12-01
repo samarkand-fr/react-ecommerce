@@ -1,11 +1,7 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import Footer from '../../components/Footer';
-import { toggleFavorite } from '../../redux/actions/favoriteActions';
-
-// Favorites component
-
-// ... (import statements and other code)
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import Footer from "../../components/Footer";
+import { toggleFavorite } from "../../redux/actions/favoriteActions";
 
 const Favorites = () => {
   const favorites = useSelector((state) => state.handleFavorites);
@@ -13,9 +9,9 @@ const Favorites = () => {
 
   useEffect(() => {
     // Load favorites from localStorage
-    const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
     // Dispatch action to set favorites in Redux state
-    storedFavorites.forEach(item => dispatch(toggleFavorite(item)));
+    storedFavorites.forEach((item) => dispatch(toggleFavorite(item)));
   }, [dispatch]);
 
   const handleToggleFavorite = (product) => {
@@ -34,7 +30,11 @@ const Favorites = () => {
             {favorites.map((item) => (
               <div key={item.id} className="col-md-4 mb-4">
                 <div className="card">
-                  <img src={item.image} className="card-img-top" alt={item.title} />
+                  <img
+                    src={item.image}
+                    className="card-img-top"
+                    alt={item.title}
+                  />
                   <div className="card-body">
                     <h5 className="card-title">{item.title}</h5>
                     <p className="card-text">${item.price}</p>
@@ -53,6 +53,5 @@ const Favorites = () => {
     </>
   );
 };
-
 
 export default Favorites;

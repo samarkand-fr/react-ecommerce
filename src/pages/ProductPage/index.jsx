@@ -1,13 +1,12 @@
-
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { addCart } from '../../redux/actions/cartActions';
-import Footer from '../../components/Footer';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { toggleFavorite } from '../../redux/reducers/favoritesReducer';
-import './style.css';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addCart } from "../../redux/actions/cartActions";
+import Footer from "../../components/Footer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { toggleFavorite } from "../../redux/reducers/favoritesReducer";
+import "./style.css";
 
 const SingleProduct = () => {
   const [product, setProduct] = useState({});
@@ -35,11 +34,10 @@ const SingleProduct = () => {
     fetchProduct();
   }, [id]);
 
-
-const handleToggleFavorite = (product) => {
-  console.log('Toggling favorite for product:', product);
-  dispatch(toggleFavorite(product));
-};
+  const handleToggleFavorite = (product) => {
+    console.log("Toggling favorite for product:", product);
+    dispatch(toggleFavorite(product));
+  };
 
   return (
     <>
@@ -53,7 +51,10 @@ const handleToggleFavorite = (product) => {
           <p id="Product-price">${product.price}</p>
           <button onClick={() => addProduct(product)}>Add To Cart</button>
           <button onClick={() => handleToggleFavorite(product)}>
-          <FontAwesomeIcon icon={faHeart} style={{ color: 'red', cursor: 'pointer' }} />
+            <FontAwesomeIcon
+              icon={faHeart}
+              style={{ color: "red", cursor: "pointer" }}
+            />
           </button>
         </div>
       </div>
@@ -70,4 +71,3 @@ const handleToggleFavorite = (product) => {
 };
 
 export default SingleProduct;
-

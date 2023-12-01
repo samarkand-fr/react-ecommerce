@@ -1,5 +1,4 @@
 
-
 const initialState = {
     user: null,
     isAuthenticated: false, // Set initially to false
@@ -48,8 +47,8 @@ const initialState = {
   
   
   
-  
-  // userReducer.js with cart 
+  // ***********************
+  // userReducer.js with cart; to relate each user to his cart
   // const initialState = {
   //   user: null,
   //   isAuthenticated: false,

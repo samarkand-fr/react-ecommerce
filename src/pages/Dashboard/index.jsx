@@ -45,7 +45,10 @@ const Dashboard = () => {
   return (
     <div>
       <h2>Welcome to Your Dashboard</h2>
-      <p>This is your personalized dashboard. You can view your profile, orders, and other information here.</p>
+      <p>
+        This is your personalized dashboard. You can view your profile, orders,
+        and other information here.
+      </p>
 
       <DashboardNav />
 
@@ -61,4 +64,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-

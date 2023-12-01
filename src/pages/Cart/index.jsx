@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addCart, delCart } from "../../redux/actions/cartActions";
@@ -7,17 +6,15 @@ import Footer from "../../components/Footer";
 
 const Cart = () => {
   const state = useSelector((state) => state.handleCart);
-  const isAuthenticated = useSelector((state) => state.user.isAuthenticated); 
-  console.log(isAuthenticated,)// Get isAuthenticated from the Redux store
+  const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
+  console.log(isAuthenticated); // Get isAuthenticated from the Redux store
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     // Save cart to localStorage whenever it changes
-    localStorage.setItem('cart', JSON.stringify(state));
+    localStorage.setItem("cart", JSON.stringify(state));
   }, [state]);
-
-  
 
   const EmptyCart = () => {
     return (
@@ -41,7 +38,6 @@ const Cart = () => {
   const removeItem = (product) => {
     dispatch(delCart(product));
   };
-  
 
   const ShowCart = () => {
     let subtotal = 0;
@@ -152,21 +148,19 @@ const Cart = () => {
                       </li>
                     </ul>
                     <button
-  className="btn btn-dark btn-lg btn-block"
-  onClick={() => {
-    if (isAuthenticated) {
-      // If authenticated, navigate to checkout
-      navigate('/checkout');
-    } else {
-      // If not authenticated, navigate to sign-in
-      navigate('/login');
-    }
-  }}
->
-  Go to checkout
-</button>
-
-
+                      className="btn btn-dark btn-lg btn-block"
+                      onClick={() => {
+                        if (isAuthenticated) {
+                          // If authenticated, navigate to checkout
+                          navigate("/checkout");
+                        } else {
+                          // If not authenticated, navigate to sign-in
+                          navigate("/login");
+                        }
+                      }}
+                    >
+                      Go to checkout
+                    </button>
                   </div>
                 </div>
               </div>

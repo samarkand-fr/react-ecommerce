@@ -1,30 +1,34 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import Footer from "../../components/Footer";
-import { loadUserData, userLoading } from '../../redux/actions/userActions';
+import { loadUserData, userLoading } from "../../redux/actions/userActions";
 
 const Signup = () => {
   const dispatch = useDispatch();
   const [userData, setUserData] = useState({
-    userName: '',
-    email: '',
-    password: '',
-    gender: 'male',
-    contactNumber: '',
+    userName: "",
+    email: "",
+    password: "",
+    gender: "male",
+    contactNumber: "",
   });
 
-  const handleInputChange = (e) => setUserData((prevData) => ({ ...prevData, [e.target.name]: e.target.value }));
+  const handleInputChange = (e) =>
+    setUserData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }));
 
   const handleSignUp = async (event) => {
     event.preventDefault();
     dispatch(userLoading());
 
     try {
-      const response = await fetch('http://localhost:3001/api/users/signup', {
-        method: 'POST',
+      const response = await fetch("http://localhost:3001/api/users/signup", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(userData),
       });
@@ -32,20 +36,20 @@ const Signup = () => {
       if (response.ok) {
         const data = await response.json();
         dispatch(loadUserData(data));
-        console.log('Registration successful', data);
+        console.log("Registration successful", data);
 
         // Redirect to a different page after successful registration
         // For example, navigate to the login page
         // This depends on your application flow
       } else {
         // Handle registration failure
-        console.error('Registration failed');
+        console.error("Registration failed");
         // You can extract error information from the response if available
         const errorData = await response.json();
-        console.error('Error details:', errorData);
+        console.error("Error details:", errorData);
       }
     } catch (error) {
-      console.error('Error during registration:', error);
+      console.error("Error during registration:", error);
     }
   };
   return (
@@ -105,8 +109,6 @@ const Signup = () => {
               required
             />
           </div>
-
-          {/* Add Bootstrap styling to the rest of the form fields if needed */}
 
           {/* Submit button */}
           <div className="button_container">
