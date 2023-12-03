@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Products from "./index";
@@ -13,35 +12,23 @@ const CategoryButton = ({ category, onClick }) => (
 const CategoryComponent = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [allProducts, setAllProducts] = useState([]);
-  const [electronics, setElectronics] = useState([]);
-  const [womensClothing, setWomensClothing] = useState([]);
-  const [jewelry, setJewelry] = useState([]);
-  const [mensClothing, setMensClothing] = useState([]);
 
   useEffect(() => {
-    const fetchData = async (category, setData) => {
+    const fetchData = async () => {
       try {
-        const response = await fetch(
-          `https://fakestoreapi.com/products/category/${category}`
-        );
+        const response = await fetch("https://fakestoreapi.com/products");
         if (!response.ok) {
-          throw new Error(
-            `Failed to fetch ${category} data. Status: ${response.status}`
-          );
+          throw new Error(`Failed to fetch data. Status: ${response.status}`);
         }
         const data = await response.json();
-        setData(data);
+        setAllProducts(data);
       } catch (error) {
-        console.error(`Error fetching ${category} data:`, error);
-        setData([]);
+        console.error("Error fetching data:", error);
+        setAllProducts([]);
       }
     };
 
-    fetchData("all", setAllProducts);
-    fetchData("electronics", setElectronics);
-    fetchData("women's clothing", setWomensClothing);
-    fetchData("jewelery", setJewelry);
-    fetchData("men's clothing", setMensClothing);
+    fetchData();
   }, []);
 
   const mapProducts = (categoryData) =>
@@ -56,6 +43,13 @@ const CategoryComponent = () => {
         </Link>
       </div>
     ));
+
+    const filteredProducts =
+    selectedCategory.toLowerCase() === "all"
+      ? allProducts
+      : allProducts.filter(
+          (product) => product.category.toLowerCase() === selectedCategory.toLowerCase()
+        );
 
   return (
     <div>
@@ -84,14 +78,7 @@ const CategoryComponent = () => {
       </div>
 
       <div className="Container">
-        <div className="Row">
-          {selectedCategory === "all" && mapProducts(allProducts)}
-          {selectedCategory === "electronics" && mapProducts(electronics)}
-          {selectedCategory === "women's clothing" &&
-            mapProducts(womensClothing)}
-          {selectedCategory === "jewelery" && mapProducts(jewelry)}
-          {selectedCategory === "men's clothing" && mapProducts(mensClothing)}
-        </div>
+        <div className="Row">{mapProducts(filteredProducts)}</div>
       </div>
     </div>
   );
