@@ -41,6 +41,11 @@ const SingleProduct = () => {
 
   return (
     <>
+      {showAlert && (
+        <div className="alert">
+          <p>Item added to the cart!</p>
+        </div>
+      )}
       <div className="Product-card">
         <div className="Product-Img">
           <img src={product.image} alt={product.title} />
@@ -58,12 +63,6 @@ const SingleProduct = () => {
           </button>
         </div>
       </div>
-
-      {showAlert && (
-        <div className="alert">
-          <p>Item added to the cart!</p>
-        </div>
-      )}
 
       <Footer />
     </>

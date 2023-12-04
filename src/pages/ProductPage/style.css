@@ -130,14 +130,18 @@
 }
 
 .alert {
-  background-color: #4caf50;
-  color: #fff;
-  padding: 15px;
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 18px;
-}
-
-.alert p {
-  margin: 0;
-}
+    position: fixed;
+    top: 40;
+    left: 0;
+    width: 100%;
+    background-color: #4caf50;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  .alert p {
+    margin: 0;
+  }
+  

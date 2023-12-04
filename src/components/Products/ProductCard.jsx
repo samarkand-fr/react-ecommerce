@@ -12,6 +12,7 @@ const CategoryButton = ({ category, onClick }) => (
 const CategoryComponent = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [allProducts, setAllProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,16 +45,30 @@ const CategoryComponent = () => {
       </div>
     ));
 
-    const filteredProducts =
+  const filteredProducts =
     selectedCategory.toLowerCase() === "all"
       ? allProducts
       : allProducts.filter(
-          (product) => product.category.toLowerCase() === selectedCategory.toLowerCase()
+          (product) =>
+            product.category.toLowerCase() === selectedCategory.toLowerCase()
         );
+
+  const filteredBySearchTerm = filteredProducts.filter((product) =>
+    product.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div>
       <h2 className="Category_title">PRODUCT OVERVIEW</h2>
+
+      {/* Search input */}
+      <input
+        type="text"
+        placeholder="Search products..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+
       <div className="Category_Container">
         <CategoryButton
           category="All Products"
@@ -78,7 +93,7 @@ const CategoryComponent = () => {
       </div>
 
       <div className="Container">
-        <div className="Row">{mapProducts(filteredProducts)}</div>
+        <div className="Row">{mapProducts(filteredBySearchTerm)}</div>
       </div>
     </div>
   );

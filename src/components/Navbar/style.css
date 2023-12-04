@@ -2,12 +2,15 @@
 /* Custom CSS for specific styles */
 .nav_logo {
   font-family: "Seaweed Script", cursive;
-  font-size: 2vw;
+  font-size: 3vw;
   color: white;
   margin-left: 1.8rem;
 }
 .navbar {
   color: white;
+}
+.nav-link{
+  font-size: 1.5vw;
 }
 .nav_btn {
   display: flex;
